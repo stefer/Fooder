@@ -10,8 +10,9 @@ Using preview of dotnet 6 and Visual Studio 2022.
 - [ ] Create new recipe
 - [ ] Grow recipe model with Url, picture Url, description, tags?
 - [ ] Nice Cards for recipes
-- [ ] Search for recipes
+- [ ] [Search](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/search?view=aspnetcore-5.0) for recipes 
 - [ ] Vote for food a specific week
+- [ ] View votes for a specific week
 - [ ] Food favourites (Many votes over time?)
 - [ ] Persistent storage, perhaps MongoDB?
 - [ ] Run in Docker/Kubernets
