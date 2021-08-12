@@ -28,5 +28,12 @@ namespace Fooder.Infrastructure.Repositories
         {
             return Task.FromResult(_recipes as IReadOnlyCollection<Recipe>);
         }
+
+        public Task SaveAsync(Recipe recipe)
+        {
+            _recipes.RemoveAll(x => x.Id.Equals(recipe.Id));
+            _recipes.Add(recipe);
+            return Task.CompletedTask;
+        }
     }
 }

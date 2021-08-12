@@ -6,16 +6,22 @@ namespace Fooder.Domain.Services
 {
     public class RecipeService : IRecipeService
     {
-        private readonly IRecipeRepository recipeRepository;
+        private readonly IRecipeRepository _recipeRepository;
 
         public RecipeService(IRecipeRepository recipeRepository)
         {
-            this.recipeRepository = recipeRepository;
+            _recipeRepository = recipeRepository;
+        }
+
+        public Task AddAsync(Recipe recipe)
+        {
+            recipe.Id = System.Guid.NewGuid();
+            return _recipeRepository.SaveAsync(recipe);
         }
 
         public Task<IReadOnlyCollection<Recipe>> GetAllAsync()
         {
-            return recipeRepository.GetAsync();
+            return _recipeRepository.GetAsync();
         }
     }
 }

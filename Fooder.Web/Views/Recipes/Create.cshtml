@@ -1,0 +1,13 @@
+﻿@model Recipe
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <label for="Name">@Html.DisplayNameFor(x => x.Name)</label>
+    <input type="text" name="Name" />
+ 
+    <input type="submit" name="submit" />
+</form>

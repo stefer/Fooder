@@ -7,5 +7,6 @@ namespace Fooder.Domain.Services
     public interface IRecipeService
     {
         Task<IReadOnlyCollection<Recipe>> GetAllAsync();
+        Task AddAsync(Recipe recipe);
     }
 }

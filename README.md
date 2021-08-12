@@ -7,7 +7,7 @@ Using preview of dotnet 6 and Visual Studio 2022.
 
 ## Todo
 
-- [ ] Create new recipe
+- [x] Create new recipe
 - [ ] Grow recipe model with Url, picture Url, description, tags?
 - [ ] Nice Cards for recipes
 - [ ] [Search](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/search?view=aspnetcore-5.0) for recipes 

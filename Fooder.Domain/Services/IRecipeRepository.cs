@@ -9,5 +9,6 @@ namespace Fooder.Domain.Services
     {
         public Task<Recipe> GetAsync(Guid id);
         public Task<IReadOnlyCollection<Recipe>> GetAsync();
+        Task SaveAsync(Recipe recipe);
     }
 }

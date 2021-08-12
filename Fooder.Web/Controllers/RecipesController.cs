@@ -1,6 +1,9 @@
-﻿using Fooder.Domain.Services;
+﻿using Fooder.Domain.Models;
+using Fooder.Domain.Services;
+using Fooder.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Fooder.Web.Controllers
@@ -35,8 +38,17 @@ namespace Fooder.Web.Controllers
         // POST: RecipeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create([FromForm] Recipe recipe)
         {
+            if (ModelState.IsValid)
+            {
+                await recipeService.AddAsync(recipe);
+            }
+            else
+            {
+                return View();
+            }
+
             try
             {
                 return RedirectToAction(nameof(Index));
@@ -87,6 +99,12 @@ namespace Fooder.Web.Controllers
             {
                 return View();
             }
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
